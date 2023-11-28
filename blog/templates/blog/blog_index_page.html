@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailuserbar %}
+
+{% block title %}{{page.title}}{% endblock %}
+
+{% block content %}
+
+<!-- Page Title
+		============================================= -->
+		<section class="page-title page-title-center">
+			<div class="container">
+				<div class="page-title-row">
+
+					<div class="page-title-content mw-sm">
+						<h1>{{page.title}}</h1>
+						<span>{{page.intro|richtext}}</span>
+					</div>
+
+				</div>
+			</div>
+		</section><!-- .page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap pt-0 pt-sm-6">
+				<div class="container">
+
+					<!-- Single Page Categories
+					============================================= -->
+					<div class="row gutter-50">
+						<div class="col-lg-3 cat-widgets position-sticky h-100" style="top: 234px;">
+							<div class="widget widget-search">
+								<form class="input-group">
+									<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+									<button class="btn btn-outline-secondary uil uil-search" type="button"></button>
+								</form>
+							</div>
+
+							<div class="widget widget-nav mt-md-5">
+								<ul class="nav">
+									<li class="nav-item active">
+										<a class="nav-link" href="#">All Categories</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Fashion</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Arts &amp; Culture</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Family</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Beauty</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Fitness</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Music</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Design &amp; Illustrations</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-lg-9">
+							<div class="d-flex">
+								<div class="flex-grow-1">
+									<h3>All Lifestyle Posts</h3>
+								</div>
+								<div>
+									<!-- Example single danger button -->
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Most Popular</button>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="#">Latest Posts</a>
+											<a class="dropdown-item" href="#">Most Comments</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row col-mb-50 posts-md">
+
+
+								{% for post in page.get_children %}
+								    {% with post=post.specific %}
+								     
+								  
+								        <div class="col-md-4">
+											<article class="entry">
+												<div class="entry-image mb-3">
+													
+											        
+													<a href="{% pageurl post %}">
+														{% with post.main_image as main_image %}
+											            	{% if main_image %}{% image main_image fill-800x420 %}{% endif %}
+											            {% endwith %}
+
+													</a>
+													
+												</div>
+												<div class="entry-title title-sm">
+													
+													<h3><a href="{% pageurl post %}" class="color-underline stretched-link">{{post.title}}</a></h3>
+												</div>
+												<div class="entry-meta">
+													<ul>
+														<li>{{post.date}}</li>
+													</ul>
+												</div>
+												<div class="entry-content mt-3">
+													<p>{{ post.intro}}</p>
+													<a href="{% pageurl post %}" class="more-link">Read the artcile</a>
+												</div>
+											</article>
+										</div>
+								    {% endwith %}
+								{% endfor %}
+
+								
+
+					
+							</div>
+
+						</div>
+					</div>
+					<!-- Single Page Categories End -->
+
+					<!-- Subscribe Section
+					============================================= -->
+					<div class="section section-colored rounded mb-0 px-4">
+						<div class="row justify-content-center align-items-center">
+							<div class="col-lg-5">
+								<h3 class="mb-4 mb-lg-0">Sign up for Updates &amp; Newsletters.</h3>
+							</div>
+							<div class="col-lg-6">
+								<div class="widget subscribe-widget" data-loader="button">
+
+									<div class="widget-subscribe-form-result"></div>
+									<form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0 d-flex">
+										<input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control form-control-lg not-dark required email" placeholder="Your Email Address">
+										<button class="button button-large button-black button-dark fw-medium ls-0 button-rounded m-0 ms-3" type="submit">Subscribe Now</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Subscribe Section End -->
+
+				</div>
+			</div>
+		</section><!-- #content end -->
+
+		
+
+
+{% endblock %}

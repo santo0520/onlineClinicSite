@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailuserbar %}
+
+
+
+{% block title %}{{page.title}}{% endblock %}
+
+{% block content %}
+
+<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap pt-5" style="overflow: visible;">
+
+				<div class="container">
+					<!-- Single Page Content
+					============================================= -->
+					<div class="single-post mb-0">
+
+						<!-- Single Post
+						============================================= -->
+						<div class="entry">
+
+							<div class="row justify-content-center">
+								<div class="col-lg-6">
+									<!-- Entry Title
+									============================================= -->
+									<div class="entry-title">
+		
+										<h2>{{page.title}}</h2>
+									</div><!-- .entry-title end -->
+								</div>
+							</div>
+
+							<!-- Entry Meta
+							============================================= -->
+							<div class="d-flex justify-content-center mt-2">
+								<div class="entry-meta">
+									<ul>
+										<li>{{page.date}}</li>
+										<li>By <a href="/about/">Sanders Lin</a></li>
+									</ul>
+								</div>
+							</div><!-- .entry-meta end -->
+
+							<!-- Entry Image
+							============================================= -->
+							<div class="entry-image mt-5">
+								{% image page.specific.main_image width-2560 as my_image %}
+								<a href="{{my_image.url}}" data-lightbox="image"><img class="rounded" src="{{my_image.url}}" alt="Blog Single"></a>
+							</div><!-- .entry-image end -->
+
+							<!-- Entry Content
+							============================================= -->
+							<div class="entry-content">
+
+								<div class="row">
+
+									<div class="col-lg-2 media-content" data-animate="fadeIn">
+										
+										<!-- Post Single - Share
+										============================================= -->
+										<div>
+											<h5 class="mb-2">Share this Post:</h5>
+											<div>
+												<a href="#" class="social-icon si-small rounded-circle text-light border-0 bg-facebook">
+													<i class="fa-brands fa-facebook-f"></i>
+													<i class="fa-brands fa-facebook-f"></i>
+												</a>
+												<a href="#" class="social-icon si-small rounded-circle text-light border-0 bg-twitter">
+													<i class="fa-brands fa-twitter"></i>
+													<i class="fa-brands fa-twitter"></i>
+												</a>
+												<a href="#" class="social-icon si-small rounded-circle text-light border-0 bg-pinterest">
+													<i class="fa-brands fa-pinterest-p"></i>
+													<i class="fa-brands fa-pinterest-p"></i>
+												</a>
+												<a href="#" class="social-icon si-small rounded-circle text-light border-0 bg-rss">
+													<i class="fa-solid fa-rss"></i>
+													<i class="fa-solid fa-rss"></i>
+												</a>
+											</div>
+										</div><!-- Post Single - Share End -->
+									</div>
+
+									<div class="col-lg-1"></div>
+
+									<div class="text-content col-lg-6">
+
+								
+
+    									<article>
+										    {% for block in page.body %}
+										        {% if block.block_type == 'heading' %}
+										            <h3>{{ block.value }}</h3>
+
+										        {% elif block.block_type == 'paragraph' %}
+										        	<p>{{block.value}}</p>
+										        	
+
+										        {% elif block.block_type == 'quote' %}
+										        	<blockquote><p>{{block.value}}</p></blockquote><br>
+
+
+										        {% elif block.block_type == 'twoImage' %}
+
+										        <div class="row mb-4" data-lightbox="gallery">
+													<div class="col-md-6">
+														{% image block.value.image1 width-2560 as img1 %}
+														<a href="{{img1.url}}" data-lightbox="gallery-item"><img class="rounded" src="{{img1.url}}" alt="Alt Images"></a>
+													</div>
+													<div class="col-md-6">
+														{% image block.value.image2 width-2560 as img2 %}
+														<a href="{{img2.url}}" data-lightbox="gallery-item"><img class="rounded" src="{{img2.url}}" alt="Alt Images"></a>
+													</div>
+												</div>
+
+										        {% else %}
+										            <section class="block-{{ block.block_type }}">
+										                {% include_block block %}
+										            </section>
+										        {% endif %}
+										    {% endfor %}
+										</article>
+
+								
+
+										<!-- Tag Cloud
+										============================================= -->
+										<!-- <h4 class="mb-3">Related Tags</h4>
+										<div class="tagcloud">
+											<a href="#">general</a>
+											<a href="#">information</a>
+											<a href="#">media</a>
+											<a href="#">press</a>
+											<a href="#">gallery</a>
+											<a href="#">illustration</a>
+										</div> -->
+										<!-- .tagcloud end -->
+
+									
+
+									
+									</div>
+									<!-- Post Single - Content End -->
+
+								</div>
+
+							</div>
+						</div><!-- .entry end -->
+
+						<h3 class="mb-0">Featured Posts</h3>
+
+						<div class="row posts-md">
+							<div class="col-lg-3 col-sm-6">
+								<article class="entry">
+									<div class="entry-image">
+										<a href="#"><img src="{% static 'blog/images/video-thumbs/1.jpg' %}" alt="Image 3"></a>
+									</div>
+									<div class="entry-title title-sm text-start">
+										<div class="entry-categories"><a href="demo-blog-categories.html">Travel</a></div>
+										<h3><a href="#" class="color-underline stretched-link">The Best Destinations in Asia for Solo Travel</a></h3>
+									</div>
+									<div class="entry-meta">
+										<ul>
+											<li><a href="#">Mar 11, 2016</a></li>
+										</ul>
+									</div>
+								</article>
+							</div>
+							<div class="col-lg-3 col-sm-6">
+								<article class="entry">
+									<div class="entry-image">
+										<a href="#"><img src="{% static 'blog/images/video-thumbs/2.jpg' %}" alt="Image 3"></a>
+									</div>
+									<div class="entry-title title-sm text-start">
+										<div class="entry-categories"><a href="demo-blog-categories.html">Fashion</a></div>
+										<h3><a href="#" class="color-underline stretched-link">10 Trendy Fashion Instagram Profile You Need to Follow</a></h3>
+									</div>
+									<div class="entry-meta">
+										<ul>
+											<li><a href="#">Mar 11, 2016</a></li>
+										</ul>
+									</div>
+								</article>
+							</div>
+							<div class="col-lg-3 col-sm-6">
+								<article class="entry">
+									<div class="entry-image">
+										<a href="#"><img src="{% static 'blog/images/video-thumbs/3.jpg' %}" alt="Image 3"></a>
+									</div>
+									<div class="entry-title title-sm text-start">
+										<div class="entry-categories"><a href="demo-blog-categories.html">Travel</a></div>
+										<h3><a href="#" class="color-underline stretched-link">23 Top Travel Bloggers Who Inspire Us To Travel</a></h3>
+									</div>
+									<div class="entry-meta">
+										<ul>
+											<li><a href="#">Mar 11, 2016</a></li>
+										</ul>
+									</div>
+								</article>
+							</div>
+
+							<div class="col-lg-3 col-sm-6">
+								<article class="entry">
+									<div class="entry-image">
+										<a href="#"><img src="{% static 'blog/images/video-thumbs/4.jpg' %}" alt="Image 3"></a>
+									</div>
+									<div class="entry-title title-sm text-start">
+										<div class="entry-categories"><a href="demo-blog-categories.html">Travel</a></div>
+										<h3><a href="#" class="color-underline stretched-link">23 Top Travel Bloggers Who Inspire Us To Travel</a></h3>
+									</div>
+									<div class="entry-meta">
+										<ul>
+											<li><a href="#">Mar 11, 2016</a></li>
+										</ul>
+									</div>
+								</article>
+							</div>
+						</div>
+
+					</div>
+					<!-- Single Page Content -->
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+
+{% endblock %}
