@@ -19565,7 +19565,7 @@ body:not(.is-expanded-pagemenu) #header[data-mobile-sticky=true] ~ #page-menu {
 }
 
 .side-panel-open:not(.device-xs):not(.device-sm):not(.device-md) .body-overlay:hover {
-  cursor: url("images/icons/close.png") 15 15, default;
+  cursor: url("images/icons/close.c02ac9fe8a64.png") 15 15, default;
 }
 
 /* ----------------------------------------------------------------
@@ -19959,7 +19959,7 @@ body:not(.has-plugin-html5video) .video-wrap video {
   top: 0;
   left: 0;
   z-index: 5;
-  background: transparent url("images/grid.png") repeat;
+  background: transparent url("images/grid.69eabce3aace.png") repeat;
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
 }
@@ -20710,7 +20710,7 @@ body:not(.has-plugin-html5video) .video-wrap video {
   margin-top: 2rem;
 }
 .page-title-pattern {
-  background-image: url("images/pattern.png");
+  background-image: url("images/pattern.bf67b03d651d.png");
   background-repeat: repeat;
   background-attachment: fixed;
 }
@@ -24229,7 +24229,7 @@ td.actions {
   padding: 2px;
   z-index: -1;
   box-shadow: none;
-  background-image: url("images/icons/iconalt.svg");
+  background-image: url("images/icons/iconalt.ce8aedaa8706.svg");
   background-position: center center;
   background-size: 100% 100%;
   transition: opacity 0.5s, background-color 0.5s;
@@ -27231,7 +27231,7 @@ td.actions {
 .owl-carousel {
   --cnvs-carousel-animation-transition: 1000ms;
   --cnvs-owl-video-play-icon-size:	64px;
-  --cnvs-owl-video-play-icon: url("images/icons/play.png");
+  --cnvs-owl-video-play-icon: url("images/icons/play.6ab59b3ca5fb.png");
   --cnvs-owl-video-play-icon-hover: scale(1.3);
   --cnvs-owl-autoHeight-transition: 500ms ease-in-out;
   --cnvs-owl-nav-hidden: true;
