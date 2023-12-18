@@ -43,30 +43,21 @@
 
 							<div class="widget widget-nav mt-md-5">
 								<ul class="nav">
-									<li class="nav-item active">
-										<a class="nav-link" href="#">All Categories</a>
+
+
+
+								{% for post in category_page %}
+								    {% with post=post.specific %}
+
+								     <li class="nav-item">
+										<a class="nav-link" href="{% pageurl post %}">{{post.title}}</a>
 									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Fashion</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Arts &amp; Culture</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Family</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Beauty</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Fitness</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Music</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Design &amp; Illustrations</a>
-									</li>
+								  
+								     
+								    {% endwith %}
+								{% endfor %}
+
+							
 								</ul>
 							</div>
 						</div>
@@ -74,7 +65,7 @@
 						<div class="col-lg-9">
 							<div class="d-flex">
 								<div class="flex-grow-1">
-									<h3>All Lifestyle Posts</h3>
+									<h3>{{page.title}}相關文章</h3>
 								</div>
 								<div>
 									<!-- Example single danger button -->
@@ -91,8 +82,9 @@
 							<div class="row col-mb-50 posts-md">
 
 
-								{% for post in page.get_children %}
+								{% for post in blogpages %}
 								    {% with post=post.specific %}
+
 								     
 								  
 								        <div class="col-md-4">
