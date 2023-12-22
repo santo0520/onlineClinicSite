@@ -10,6 +10,14 @@ from wagtail import blocks
 from wagtail.images.blocks import ImageChooserBlock
 
 
+
+
+class DoctorPage(Page):
+	pass 
+
+
+
+
 class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
 
