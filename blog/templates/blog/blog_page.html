@@ -106,6 +106,16 @@
 										        {% elif block.block_type == 'quote' %}
 										        	<blockquote><p>{{block.value}}</p></blockquote><br>
 
+										        {% elif block.block_type == 'image' %}
+
+										        <div class="row mb-4" data-lightbox="gallery">
+												
+													{% image block.value width-2560 as img1 %}
+													<a href="{{img1.url}}" data-lightbox="gallery-item"><img class="rounded" src="{{img1.url}}" alt="Image not loaded."></a>
+												
+			
+												</div>
+
 
 										        {% elif block.block_type == 'twoImage' %}
 
