@@ -44,6 +44,28 @@ class BlogIndexPage(Page):
     ]
 
 
+class ProductPage(Page):
+   
+    body = StreamField([
+       
+        ('image', ImageChooserBlock()),
+
+    ], use_json_field=True)
+
+
+
+
+    content_panels = Page.content_panels + [
+      
+        FieldPanel('body'),
+       
+    ]
+
+
+
+
+
+
 class BlogPage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
