@@ -12,6 +12,10 @@ from wagtail.images.blocks import ImageChooserBlock
 
 
 
+class ShopPage(Page):
+    pass 
+
+
 class DoctorPage(Page):
 	pass 
 

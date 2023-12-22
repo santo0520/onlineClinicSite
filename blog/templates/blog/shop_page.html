@@ -1,0 +1,138 @@
+	
+{% extends "base.html" %}
+
+
+
+{% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+
+{% block content %}
+
+
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper">
+
+	
+
+
+
+	
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap pb-0">
+
+
+
+				<div class="container-fluid mt-5">
+					<div class="row">
+						<div class="col-md-2 sticky-sidebar-wrap">
+							<ul class="list-unstyled items-nav sticky-sidebar">
+								<li><a href="#" class="text-dark fw-semibold">所有產品</a></li>
+								<li class="no-divider"><a href="#" class="text-dark fw-semibold">熱銷新產品</a></li>
+								<li><hr></li>
+								<li><a href="#">林博士益生菌</a></li>
+								<li><a href="#">T-Shirts</a></li>
+				
+							</ul>
+						</div>
+
+						<div class="col-md-10">
+							<div class="row">
+
+			
+
+								<!-- Shop Item 8
+								============================================= -->
+								<div class="col-lg-4 col-md-6 mb-4">
+									<div class="product">
+										<div class="product-image">
+											<a href="demo-store-product-single.html"><img src="{% static 'blog/images/probiotics_box.png' %}" alt="益生菌外盒"></a>
+											<a href="demo-store-product-single.html"><img src="{% static 'blog/images/probiotics_dm_page1.png' %}" alt="益生菌DM"></a>
+											<a href="#" class="cart-btn button button-white button-light"><i class="uil uil-plus"></i>了解更多</a>
+										</div>
+										<div class="product-desc">
+											<div class="product-title">
+												<h3><a href="demo-store-product-single.html">林博士益生菌</a></h3>
+												<span><a href="#">消化專科</a></span>
+											</div>
+											<div class="product-price"><ins>$1200</ins></div>
+										</div>
+									</div>
+								</div>
+					
+					
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</section><!-- #content end -->
+
+
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="uil uil-angle-up"></div>
+
+	<!-- JavaScripts
+	============================================= -->
+	<script src="js/plugins.min.js"></script>
+	<script src="js/functions.bundle.js"></script>
+
+	<script>
+		jQuery(document).ready(changeHeaderColor);
+		jQuery(window).on('resize',changeHeaderColor);
+
+		function changeHeaderColor(){
+			if (jQuery(window).width() > 991.98) {
+				jQuery( "#header" ).hover(
+					function() {
+						if (!jQuery(this).hasClass("sticky-header")) {
+							jQuery( this ).addClass( "hover-light" ).removeClass( "dark" ).addClass('not-dark');
+						}
+						jQuery( "#wrapper" ).addClass( "header-overlay" );
+						SEMICOLON.Base.setBSTheme();
+					}, function() {
+						if (!jQuery(this).hasClass("sticky-header")) {
+							jQuery( this ).removeClass( "hover-light" ).addClass( "dark" ).removeClass('not-dark');
+						}
+						jQuery( "#wrapper" ).removeClass( "header-overlay" );
+						SEMICOLON.Base.setBSTheme();
+					}
+				);
+			}
+		};
+
+		window.addEventListener( 'scroll', function() {
+			setTimeout( function() {
+				if(!jQuery('#header').hasClass("sticky-header")) {
+					jQuery('#header').removeClass( "hover-light" ).addClass( "dark" ).removeClass('not-dark');
+				}
+			}, 666);
+
+			if (jQuery(document).scrollTop() > 2000 && jQuery("#modal-subscribe").attr("displayed") === "false") {
+				if( jQuery('body').hasClass('has-plugin-bootstrap') ) {
+					jQuery('#modal-subscribe').modal('show');
+					jQuery("#modal-subscribe").attr("displayed", "true");
+				}
+			}
+		}, {passive:true});
+
+		jQuery('#modal-subscribe-form').on( 'formSubmitSuccess', function(){
+			jQuery("#modal-subscribe").addClass("fadeOutDown");
+			setTimeout(function() { jQuery('#modal-subscribe').modal('hide'); }, 400);
+			jQuery("#modal-subscribe").attr("displayed", "false");
+		});
+	</script>
+
+{% endblock %}
