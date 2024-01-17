@@ -15,7 +15,14 @@
 		============================================= -->
 		<section id="content">
 
-			<div class="content-wrap pt-5" style="overflow: visible;">
+
+
+			<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0" nonce="Vs8fuLTu"></script>
+
+
+
+			<div class="content-wrap pt-5" style="overflow: visible;">	
 
 				<div class="container">
 					<!-- Single Page Content
@@ -43,7 +50,7 @@
 								<div class="entry-meta">
 									<ul>
 										<li>{{page.date}}</li>
-										<li>By <a href="/about/">Sanders Lin</a></li>
+										<li>By <a href="/authors/">林宏慶醫師</a></li>
 									</ul>
 								</div>
 							</div><!-- .entry-meta end -->
@@ -55,6 +62,7 @@
 								<a href="{{my_image.url}}" data-lightbox="image"><img class="rounded" src="{{my_image.url}}" alt="Blog Single"></a>
 							</div><!-- .entry-image end -->
 
+
 							<!-- Entry Content
 							============================================= -->
 							<div class="entry-content">
@@ -65,26 +73,17 @@
 										
 										<!-- Post Single - Share
 										============================================= -->
+										
 										<div>
-											<h5 class="mb-2">Share this Post:</h5>
-											<div>
-												<a href="#" class="social-icon si-small rounded-circle text-light border-0 bg-facebook">
-													<i class="fa-brands fa-facebook-f"></i>
-													<i class="fa-brands fa-facebook-f"></i>
-												</a>
-												<a href="#" class="social-icon si-small rounded-circle text-light border-0 bg-twitter">
-													<i class="fa-brands fa-twitter"></i>
-													<i class="fa-brands fa-twitter"></i>
-												</a>
-												<a href="#" class="social-icon si-small rounded-circle text-light border-0 bg-pinterest">
-													<i class="fa-brands fa-pinterest-p"></i>
-													<i class="fa-brands fa-pinterest-p"></i>
-												</a>
-												<a href="#" class="social-icon si-small rounded-circle text-light border-0 bg-rss">
-													<i class="fa-solid fa-rss"></i>
-													<i class="fa-solid fa-rss"></i>
-												</a>
-											</div>
+											<h5 class="mb-2">分享這篇文章:</h5>
+										
+												<div class="fb-share-button" data-href="https://www.linclinic.com.tw/medical/osteoporosis/osteoporsis-intro/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{request.path}};src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a></div>
+												
+												<div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-env="REAL" data-url="{{request.path}}" data-color="default" data-size="large" data-count="true" data-ver="3" style="display: none;"></div>
+<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+
+												
+										
 										</div><!-- Post Single - Share End -->
 									</div>
 
@@ -164,7 +163,7 @@
 							</div>
 						</div><!-- .entry end -->
 
-						<h3 class="mb-0">Featured Posts</h3>
+						<!-- <h3 class="mb-0">Featured Posts</h3>
 
 						<div class="row posts-md">
 							<div class="col-lg-3 col-sm-6">
@@ -232,11 +231,11 @@
 									</div>
 								</article>
 							</div>
-						</div>
+						</div> -->
 
 					</div>
 					<!-- Single Page Content -->
-				</div>
+				</div>	
 
 			</div>
 
